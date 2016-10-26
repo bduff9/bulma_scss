@@ -1,0 +1,29 @@
+{
+  "name": "bulma_scss",
+  "version": "0.2.3",
+  "homepage": "http://bulma.io",
+  "authors": [
+    "jgthms <bbxdesign@gmail.com>",
+    "bduff9 <Brian.E.Duffey@gmail.com>"
+  ],
+  "description": "Modern CSS framework based on Flexbox, SCSS version",
+  "main": "bulma.scss",
+  "keywords": [
+    "css",
+    "sass",
+    "scss",
+    "flexbox",
+    "responsive",
+    "framework"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "docs",
+    "images"
+  ]
+}
