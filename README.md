@@ -1,7 +1,7 @@
 # [Bulma](http://bulma.io)
 
-[![npm](https://img.shields.io/npm/v/bulma.svg)](https://www.npmjs.com/package/bulma_scss)
-[![npm](https://img.shields.io/npm/dm/bulma.svg)](https://www.npmjs.com/package/bulma_scss)
+[![npm](https://img.shields.io/npm/v/bulma_scss.svg)](https://www.npmjs.com/package/bulma_scss)
+[![npm](https://img.shields.io/npm/dm/bulma_scss.svg)](https://www.npmjs.com/package/bulma_scss)
 [![Join the chat at https://gitter.im/jgthms/bulma](https://badges.gitter.im/jgthms/bulma.svg)](https://gitter.im/jgthms/bulma)
 
 Bulma is a modern CSS framework based on [Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes).

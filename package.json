@@ -1,6 +1,6 @@
 {
   "name": "bulma_scss",
-  "version": "0.2.3",
+  "version": "0.2.3b",
   "homepage": "http://bulma.io",
   "author": "Brian Duffey <bduff9@gmail.com> (http://asitewithnoname.com)",
   "description": "Modern CSS framework based on Flexbox, scss version",
@@ -43,7 +43,7 @@
   },
   "files": [
     "css",
-    "sass",
+    "scss",
     "bulma.scss",
     "LICENSE",
     "README.md"
