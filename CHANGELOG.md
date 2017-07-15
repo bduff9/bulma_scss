@@ -1,5 +1,128 @@
 # Bulma Changelog
 
+## 0.4.3
+
+### New features
+
+* New navbar with dropdown support
+* Add new feature: Breadcrumb component (#632) @vinialbano
+* Add Bloomer to README.md (#787) @AlgusDark
+* Add responsive is-*-touch tags for .column sizes (#780) @tom-rb
+* Adding 'is-hidden' to helpers in docs (#798) @aheuermann
+* Add figure/figcaption as content element (#807) @werthen
+* Add <sup> and <sub> support to content (#808) @werthen
+* Add re-bulma and react-bulma (#809) @kulakowka
+* Add is-halfheight to hero (#783) @felipeas
+* Added a related project with Golang backend (#784) @Caiyeon
+
+### Issues closed
+
+* Fix #827 Breadcrumb and Navbar in docs
+* Fix #824 Code examples broken because of `text-align: center`
+* Fix #820 Loading spinner resizes with controls
+* Fix #819 Remove `height: auto` from media elements
+* Fix #790 Documentation typo
+* Fix #814 Make use of +fullhd mixin for columns @Saboteur777
+* Fix #781 Add min/max height/width to delete class size modifiers @ZackWard
+* Fix #391 Section docs update
+
+## 0.4.2
+
+* Fix #728 selected row on striped table
+* Fix #747 remove flex-shrink for is-expanded
+* Fix #702 add icons support for select dropdown
+* Fix #712 delete button as flexbox item
+* Fix #759 static button
+
+## 0.4.1
+
+* Fix #568 max-width container
+* Fix #589 notification delete
+* Fix #272 nav-right without nav-menu
+* Fix #616 hero and notification buttons
+* Fix #607 has-addons z-index
+* Feature #586 select color modifiers
+* Fix #537 -ms-expand
+* Fix #578 better `+center` mixin
+* Fix #565 `dl` styles
+* Fix #389 `pre` `margin-bottom`
+* Fix #484 icon alignment
+* Fix #506 bold nav menu
+* Fix #581 nav container
+* Fix #512 nav grouped buttons
+* Fix #605 container example
+* Fix #458 select expanded
+* Fix #403 separate animations
+* Fix #637 customize Bulma
+* Fix #584 loading select
+* Fix #571 control height
+* Fix #634 is-grouped control
+* Fix #676 checkbox/radio wrapping
+* Feature #479 has-icons placement
+* Fix #442 selected table row
+* Fix #187 add customize page
+* Fix #449 columns negative horizontal margin
+* Fix #399 pagination wrapping
+* Fix #227 color keys as strings
+
+## 0.4.0
+
+* **Default font-size is 16px**
+* **New `.field` element ; `.control` repurposed**
+* **New `.pagination` sizes**
+* **New `$fullhd` breakpoint (1344px)**
+
+* Remove monospace named fonts
+* Remove icon spacing logic
+* Split icon container dimensions and icon size
+* Fix delete button by using pixels instead of (r)em
+* Fix level on mobile
+* Add new `.is-spaced` modifer for titles and subtitles
+
+* Fix #487
+* Fix #489
+* Fix #502
+* Fix #514
+* Fix #524
+* Fix #536
+
+## 0.3.2
+
+* Fix #478
+
+## 0.3.1
+
+* Fix #441
+* Fix #443
+
+## 0.3.0
+
+* Use `rem` and `em` (!)
+* Fix Font Awesome icons in buttons (!)
+* Fix message colors (!)
+* Use `{% capture %}` to ensure same display as code snippet (!)
+
+* Move variables to their own file
+* Remove small tag
+* Add `:focus` state
+* Fix table
+* Remove table `.is-icon` and `.is-link`
+* Add `.content` table
+* Fix inputs with icons
+* Input icons require the `.icon` container
+* Deprecate `.media-number`
+* Fix `.level-item` height
+* Fix `.menu` spacing
+* Deprecate `.menu-nav`
+* Add invert outlined buttons
+* Fix `.nav`
+* Fix `.pagination`
+* Fix `.tabs`
+* Fix `.panel`
+* Fix `.delete`
+* Add mixins documentation
+* Add functions documentation
+
 ## 0.2.2
 
 * Fix: remove multiple imports

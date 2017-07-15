@@ -4,16 +4,16 @@
   border-top: 0;
   content: " ";
   display: block;
-  height: 7px;
+  height: 0.5em;
   pointer-events: none;
   position: absolute;
   transform: rotate(-45deg);
-  width: 7px;
+  width: 0.5em;
 }
 
 @mixin block {
   &:not(:last-child) {
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
   }
 }
 
@@ -25,12 +25,17 @@
   }
 }
 
-@mixin center($size) {
-  left: 50%;
-  margin-left: -($size / 2);
-  margin-top: -($size / 2);
+@mixin center($width, $height: 0) {
   position: absolute;
-  top: 50%;
+
+  @if $height != 0 {
+    left: calc(50% - (#{$width} / 2));
+    top: calc(50% - (#{$height} / 2));
+  }
+  @else {
+    left: calc(50% - (#{$width} / 2));
+    top: calc(50% - (#{$width} / 2));
+  }
 }
 
 @mixin delete {
@@ -38,57 +43,81 @@
 
   -moz-appearance: none;
   -webkit-appearance: none;
-  background-color: rgba($black, 0.1);
+  background-color: rgba($black, 0.2);
   border: none;
   border-radius: 290486px;
   cursor: pointer;
   display: inline-block;
-  height: 24px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  font-size: $size-normal;
+  height: 20px;
+  max-height: 20px;
+  max-width: 20px;
+  min-height: 20px;
+  min-width: 20px;
   outline: none;
   position: relative;
   vertical-align: top;
-  width: 24px;
+  width: 20px;
 
   &:before,
   &:after {
     background-color: $white;
     content: "";
     display: block;
-    height: 2px;
     left: 50%;
-    margin-left: -25%;
-    margin-top: -1px;
     position: absolute;
     top: 50%;
-    width: 50%;
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    transform-origin: center center;
   }
 
   &:before {
-    transform: rotate(45deg);
+    height: 2px;
+    width: 50%;
   }
 
   &:after {
-    transform: rotate(-45deg);
+    height: 50%;
+    width: 2px;
   }
 
-  &:hover {
-    background-color: rgba($black, 0.2);
+  &:hover,
+  &:focus {
+    background-color: rgba($black, 0.3);
+  }
+
+  &:active {
+    background-color: rgba($black, 0.4);
   }
 
   // Sizes
   &.is-small {
     height: 16px;
+    max-height: 16px;
+    max-width: 16px;
+    min-height: 16px;
+    min-width: 16px;
     width: 16px;
   }
 
   &.is-medium {
-    height: 32px;
-    width: 32px;
+    height: 24px;
+    max-height: 24px;
+    max-width: 24px;
+    min-height: 24px;
+    min-width: 24px;
+    width: 24px;
   }
 
   &.is-large {
-    height: 40px;
-    width: 40px;
+    height: 32px;
+    max-height: 32px;
+    max-width: 32px;
+    min-height: 32px;
+    min-width: 32px;
+    width: 32px;
   }
 }
 
@@ -162,16 +191,6 @@
   }
 }
 
-@keyframes spinAround {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(359deg);
-  }
-}
-
 @mixin loader {
   animation: spinAround 500ms infinite linear;
   border: 2px solid $border;
@@ -180,9 +199,13 @@
   border-top-color: transparent;
   content: "";
   display: block;
-  height: 16px;
+  height: 1em;
   position: relative;
-  width: 16px;
+  width: 1em;
+}
+
+@mixin overflow-touch {
+  -webkit-overflow-scrolling: touch;
 }
 
 @mixin overlay($offset: 0) {
@@ -203,19 +226,6 @@
   }
 }
 
-@mixin replace($background, $width, $height) {
-  background-color: $background;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: $width $height;
-  display: block;
-  height: $height;
-  outline: none;
-  overflow: hidden;
-  text-indent: -290486px;
-  width: $width;
-}
-
 @mixin unselectable {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -225,10 +235,6 @@
 }
 
 // Responsiveness
-
-$tablet: 769px !default;
-$desktop: 980px !default;
-$widescreen: 1180px !default;
 
 @mixin from($device) {
   @media screen and (min-width: $device) {
@@ -249,7 +255,7 @@ $widescreen: 1180px !default;
 }
 
 @mixin tablet {
-  @media screen and (min-width: $tablet) {
+  @media screen and (min-width: $tablet), print {
     @content;
   }
 }
@@ -280,6 +286,18 @@ $widescreen: 1180px !default;
 
 @mixin widescreen {
   @media screen and (min-width: $widescreen) {
+    @content;
+  }
+}
+
+@mixin widescreen-only {
+  @media screen and (min-width: $widescreen) and (max-width: $fullhd - 1px) {
+    @content;
+  }
+}
+
+@mixin fullhd {
+  @media screen and (min-width: $fullhd) {
     @content;
   }
 }

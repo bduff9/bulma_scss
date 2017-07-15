@@ -17,13 +17,13 @@ Bulma is in early but active development! Try it out now:
 ### NPM
 
 ```sh
-npm install bulma
+npm install bulma_scss
 ```
 
-### Bower
+### Meteor
 
 ```sh
-bower install bulma
+meteor add bduff9:bulma
 ```
 
 ### CDN

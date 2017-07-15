@@ -1,24 +1,50 @@
-.panel-icon {
-  @include fa(14px, 16px);
+.panel {
+  font-size: $size-normal;
 
-  color: $text-light;
-  float: left;
-  margin: 0 4px 0 -2px;
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+}
 
-  .fa {
-    font-size: inherit;
-    line-height: inherit;
+.panel-heading,
+.panel-tabs,
+.panel-block {
+  border-bottom: 1px solid $border;
+  border-left: 1px solid $border;
+  border-right: 1px solid $border;
+
+  &:first-child {
+    border-top: 1px solid $border;
   }
 }
 
 .panel-heading {
   background-color: $background;
-  border-bottom: 1px solid $border;
-  border-radius: 4px 4px 0 0;
+  border-radius: $radius $radius 0 0;
   color: $text-strong;
-  font-size: $size-medium;
-  font-weight: 300;
-  padding: 10px;
+  font-size: 1.25em;
+  font-weight: $weight-light;
+  line-height: 1.25;
+  padding: 0.5em 0.75em;
+}
+
+.panel-tabs {
+  align-items: flex-end;
+  display: flex;
+  font-size: 0.875em;
+  justify-content: center;
+
+  a {
+    border-bottom: 1px solid $border;
+    margin-bottom: -1px;
+    padding: 0.5em;
+
+    // Modifiers
+    &.is-active {
+      border-bottom-color: $link-active-border;
+      color: $link-active;
+    }
+  }
 }
 
 .panel-list {
@@ -31,51 +57,54 @@
   }
 }
 
-.panel-tabs {
+.panel-block {
+  align-items: center;
+  color: $text-strong;
   display: flex;
-  font-size: $size-small;
-  padding: 5px 10px 0;
-  justify-content: center;
+  justify-content: flex-start;
+  padding: 0.5em 0.75em;
 
-  a {
-    border-bottom: 1px solid $border;
-    margin-bottom: -1px;
-    padding: 5px;
+  input[type="checkbox"] {
+    margin-right: 0.75em;
+  }
 
-    // Modifiers
-    &.is-active {
-      border-bottom-color: $link-active-border;
-      color: $link-active;
+  & > .control {
+    flex-grow: 1;
+    flex-shrink: 1;
+    width: 100%;
+  }
+
+  &.is-wrapped {
+    flex-wrap: wrap;
+  }
+
+  &.is-active {
+    border-left-color: $link;
+    color: $link-active;
+
+    .panel-icon {
+      color: $link;
     }
   }
-
-  &:not(:last-child) {
-    border-bottom: 1px solid $border;
-  }
 }
 
-.panel-block {
-  color: $text-strong;
-  display: block;
-  line-height: 16px;
-  padding: 10px;
+a.panel-block,
+label.panel-block {
+  cursor: pointer;
 
-  &:not(:last-child) {
-    border-bottom: 1px solid $border;
-  }
-}
-
-a.panel-block {
   &:hover {
     background-color: $background;
   }
 }
 
-.panel {
-  border: 1px solid $border;
-  border-radius: $radius-large;
+.panel-icon {
+  @include fa(14px, 1em);
 
-  &:not(:last-child) {
-    margin-bottom: 20px;
+  color: $text-light;
+  margin-right: 0.75em;
+
+  .fa {
+    font-size: inherit;
+    line-height: inherit;
   }
 }

@@ -1,18 +1,58 @@
-@mixin form-control {
+$input: $grey-darker !default;
+$input-background: $white !default;
+$input-border: $grey-lighter !default;
+
+$input-hover: $grey-darker !default;
+$input-hover-border: $grey-light !default;
+
+$input-focus: $grey-darker !default;
+$input-focus-border: $link !default;
+
+$input-disabled: $text-light !default;
+$input-disabled-background: $background !default;
+$input-disabled-border: $background !default;
+
+$input-arrow: $link !default;
+
+$input-icon: $grey-lighter !default;
+$input-icon-active: $grey !default;
+
+$input-radius: $radius !default;
+
+@mixin input {
   @include control;
 
-  @each $name, $pair in $colors {
-    $color: nth($pair, 1);
+  background-color: $input-background;
+  border-color: $input-border;
+  color: $input;
 
-    &.is-#{$name} {
-      border-color: $color;
+  &:hover,
+  &.is-hovered {
+    border-color: $input-hover-border;
+  }
+
+  &:focus,
+  &.is-focused,
+  &:active,
+  &.is-active {
+    border-color: $input-focus-border;
+  }
+
+  &[disabled] {
+    background-color: $input-disabled-background;
+    border-color: $input-disabled-border;
+    box-shadow: none;
+    color: $input-disabled;
+
+    @include placeholder {
+      color: rgba($input, 0.3);
     }
   }
 }
 
 .input,
 .textarea {
-  @include form-control;
+  @include input;
 
   box-shadow: inset 0 1px 2px rgba($black, 0.1);
   max-width: 100%;
@@ -20,6 +60,15 @@
 
   &[type="search"] {
     border-radius: 290486px;
+  }
+
+  // Colors
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+
+    &.is-#{$name} {
+      border-color: $color;
+    }
   }
 
   // Sizes
@@ -49,12 +98,11 @@
 
 .textarea {
   display: block;
-  line-height: 1.2;
   max-height: 600px;
   max-width: 100%;
   min-height: 120px;
   min-width: 100%;
-  padding: 10px;
+  padding: 0.625em;
   resize: vertical;
 }
 
@@ -62,54 +110,101 @@
 .radio {
   cursor: pointer;
   display: inline-block;
-  line-height: 16px;
+  line-height: 1.25;
   position: relative;
-  vertical-align: top;
 
   input {
     cursor: pointer;
   }
 
   &:hover {
-    color: $control-hover;
+    color: $input-hover;
   }
 
-  &.is-disabled {
-    color: $control-disabled;
-    pointer-events: none;
-
-    input {
-      pointer-events: none;
-    }
+  &[disabled] {
+    color: $input-disabled;
+    cursor: not-allowed;
   }
 }
 
 .radio {
   & + .radio {
-    margin-left: 10px;
+    margin-left: 0.5em;
   }
 }
 
 .select {
   display: inline-block;
-  height: 32px;
+  height: 2.25em;
+  max-width: 100%;
   position: relative;
   vertical-align: top;
 
+  &:after {
+    @include arrow($input-arrow);
+
+    margin-top: -0.375em;
+    right: 1.125em;
+    top: 50%;
+    z-index: 4;
+  }
+
   select {
-    @include form-control;
+    @include input;
 
     cursor: pointer;
     display: block;
+    font-size: 1em;
+    max-width: 100%;
     outline: none;
-    padding-right: 36px;
+    padding-right: 2.5em;
 
     &:hover {
-      border-color: $control-hover-border;
+      border-color: $input-hover-border;
     }
 
-    &::ms-expand {
+    &::-ms-expand {
       display: none;
+    }
+
+    &[disabled]:hover {
+      border-color: $input-disabled-border;
+    }
+  }
+
+  // States
+  &:hover {
+    &:after {
+      border-color: $input-hover;
+    }
+  }
+
+  // Colors
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+
+    &.is-#{$name} select {
+      border-color: $color;
+    }
+  }
+
+  // Sizes
+  &.is-small {
+    @include control-small;
+  }
+
+  &.is-medium {
+    @include control-medium;
+  }
+
+  &.is-large {
+    @include control-large;
+  }
+
+  // Modifiers
+  &.is-disabled {
+    &:after {
+      border-color: $input-disabled;
     }
   }
 
@@ -121,65 +216,59 @@
     }
   }
 
-  &:after {
-    @include arrow($control-active);
-
-    margin-top: -6px;
-    right: 16px;
-    top: 50%;
-  }
-
-  &:hover {
+  &.is-loading {
     &:after {
-      border-color: $control-hover;
+      @include loader;
+
+      margin-top: 0;
+      position: absolute;
+      right: 0.625em;
+      top: 0.625em;
+      transform: none;
     }
-  }
 
-  &.is-small {
-    height: 24px;
-
-    select {
-      @include control-small;
-
-      padding-right: 28px;
+    &.is-small:after {
+      font-size: $size-small;
     }
-  }
 
-  &.is-medium {
-    height: 40px;
-
-    select {
-      @include control-medium;
-
-      padding-right: 44px;
+    &.is-medium:after {
+      font-size: $size-medium;
     }
-  }
 
-  &.is-large {
-    height: 48px;
-
-    select {
-      @include control-large;
-
-      padding-right: 52px;
+    &.is-large:after {
+      font-size: $size-large;
     }
   }
 }
 
 .label {
-  color: $control;
+  color: $input;
   display: block;
-  font-weight: bold;
+  font-size: $size-normal;
+  font-weight: $weight-bold;
 
   &:not(:last-child) {
-    margin-bottom: 5px;
+    margin-bottom: 0.5em;
+  }
+
+  // Sizes
+  &.is-small {
+    font-size: $size-small;
+  }
+
+  &.is-medium {
+    font-size: $size-medium;
+  }
+
+  &.is-large {
+    font-size: $size-large;
   }
 }
 
 .help {
   display: block;
-  font-size: $control-size-small;
-  margin-top: 5px;
+  font-size: $size-small;
+  margin-top: 0.25rem;
 
   @each $name, $pair in $colors {
     $color: nth($pair, 1);
@@ -192,28 +281,9 @@
 
 // Containers
 
-.control-label {
-  @include mobile {
-    margin-bottom: 5px;
-  }
-
-
-  @include tablet {
-    flex-basis: 0;
-    flex-grow: 1;
-    flex-shrink: 0;
-    margin-right: 20px;
-    padding-top: 7px;
-    text-align: right;
-  }
-}
-
-.control {
-  position: relative;
-  text-align: left;
-
+.field {
   &:not(:last-child) {
-    margin-bottom: 10px;
+    margin-bottom: 0.75rem;
   }
 
   // Modifiers
@@ -221,41 +291,51 @@
     display: flex;
     justify-content: flex-start;
 
-    .button,
-    .input,
-    .select {
-      border-radius: 0;
+    .control {
       margin-right: -1px;
-      width: auto;
-
-      &:hover {
-        z-index: 2;
-      }
-
-      &:active,
-      &:focus {
-        z-index: 3;
-      }
 
       &:first-child {
-        border-radius: $control-radius 0 0 $control-radius;
-
-        select {
-          border-radius: $control-radius 0 0 $control-radius;
+        .button,
+        .input,
+        .select select {
+          border-bottom-left-radius: $input-radius;
+          border-top-left-radius: $input-radius;
         }
       }
 
       &:last-child {
-        border-radius: 0 $control-radius $control-radius 0;
+        .button,
+        .input,
+        .select select {
+          border-bottom-right-radius: $input-radius;
+          border-top-right-radius: $input-radius;
+        }
+      }
 
-        select {
-          border-radius: 0 $control-radius $control-radius 0;
+      .button,
+      .input,
+      .select select {
+        border-radius: 0;
+
+        &:hover,
+        &.is-hovered {
+          z-index: 2;
+        }
+
+        &:focus,
+        &.is-focused,
+        &:active,
+        &.is-active {
+          z-index: 3;
+
+          &:hover {
+            z-index: 4;
+          }
         }
       }
 
       &.is-expanded {
         flex-grow: 1;
-        flex-shrink: 0;
       }
     }
 
@@ -268,112 +348,9 @@
     }
 
     &.has-addons-fullwidth {
-      .button,
-      .input,
-      .select {
+      .control {
         flex-grow: 1;
         flex-shrink: 0;
-      }
-    }
-  }
-
-  &.has-icon {
-    & > .fa {
-      @include fa(14px, 24px);
-
-      color: $control-icon;
-      pointer-events: none;
-      position: absolute;
-      top: 4px;
-      z-index: 4;
-    }
-
-    .input {
-      &:focus + .fa {
-        color: $control-icon-active;
-      }
-
-      &.is-small + .fa {
-        font-size: 10.5px;
-        top: 0;
-      }
-
-      &.is-medium + .fa {
-        font-size: 21px;
-        top: 8px;
-      }
-
-      &.is-large + .fa {
-        font-size: 21px;
-        top: 12px;
-      }
-    }
-
-    &:not(.has-icon-right) {
-      & > .fa {
-        left: 4px;
-      }
-
-      .input {
-        padding-left: 32px;
-
-        &.is-small {
-          padding-left: 24px;
-
-          & + .fa {
-            left: 0;
-          }
-        }
-
-        &.is-medium {
-          padding-left: 40px;
-
-          & + .fa {
-            left: 8px;
-          }
-        }
-
-        &.is-large {
-          padding-left: 48px;
-
-          & + .fa {
-            left: 12px;
-          }
-        }
-      }
-    }
-
-    &.has-icon-right {
-      & > .fa {
-        right: 4px;
-      }
-
-      .input {
-        padding-right: 32px;
-
-        &.is-small {
-          padding-right: 24px;
-
-          & + .fa {
-            right: 0;
-          }
-        }
-
-        &.is-medium {
-          padding-right: 40px;
-
-          & + .fa {
-            right: 8px;
-          }
-        }
-
-        &.is-large {
-          padding-right: 48px;
-
-          & + .fa {
-            right: 12px;
-          }
-        }
       }
     }
   }
@@ -383,9 +360,11 @@
     justify-content: flex-start;
 
     & > .control {
+      flex-shrink: 0;
+
       &:not(:last-child) {
         margin-bottom: 0;
-        margin-right: 10px;
+        margin-right: 0.75rem;
       }
 
       &.is-expanded {
@@ -406,13 +385,188 @@
   &.is-horizontal {
     @include tablet {
       display: flex;
+    }
+  }
+}
 
-      & > .control {
-        display: flex;
-        flex-basis: 0;
-        flex-grow: 5;
-        flex-shrink: 1;
+.field-label {
+  .label {
+    font-size: inherit;
+  }
+
+  @include mobile {
+    margin-bottom: 0.5rem;
+  }
+
+
+  @include tablet {
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 0;
+    margin-right: 1.5rem;
+    text-align: right;
+
+    &.is-small {
+      font-size: $size-small;
+      padding-top: 0.375em;
+    }
+
+    &.is-normal {
+      padding-top: 0.375em;
+    }
+
+    &.is-medium {
+      font-size: $size-medium;
+      padding-top: 0.375em;
+    }
+
+    &.is-large {
+      font-size: $size-large;
+      padding-top: 0.375em;
+    }
+  }
+}
+
+.field-body {
+  @include tablet {
+    display: flex;
+    flex-basis: 0;
+    flex-grow: 5;
+    flex-shrink: 1;
+
+    .field {
+      flex-shrink: 1;
+
+      &:not(.is-narrow) {
+        flex-grow: 1;
       }
+
+      &:not(:last-child) {
+        margin-bottom: 0;
+        margin-right: 0.75rem;
+      }
+    }
+  }
+}
+
+.control {
+  font-size: $size-normal;
+  position: relative;
+  text-align: left;
+
+  // Modifiers
+  // DEPRECATED
+  &.has-icon {
+    .icon {
+      color: $input-icon;
+      height: 2.25em;
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      width: 2.25em;
+      z-index: 4;
+    }
+
+    .input {
+      &:focus {
+        & + .icon {
+          color: $input-icon-active;
+        }
+      }
+
+      &.is-small {
+        & + .icon {
+          font-size: $size-small;
+        }
+      }
+
+      &.is-medium {
+        & + .icon {
+          font-size: $size-medium;
+        }
+      }
+
+      &.is-large {
+        & + .icon {
+          font-size: $size-large;
+        }
+      }
+    }
+
+    &:not(.has-icon-right) {
+      .icon {
+        left: 0;
+      }
+
+      .input {
+        padding-left: 2.25em;
+      }
+    }
+
+    &.has-icon-right {
+      .icon {
+        right: 0;
+      }
+
+      .input {
+        padding-right: 2.25em;
+      }
+    }
+  }
+
+  &.has-icons-left,
+  &.has-icons-right {
+    .input,
+    .select select {
+      &:focus {
+        & ~ .icon {
+          color: $input-icon-active;
+        }
+      }
+
+      &.is-small ~ .icon {
+        font-size: $size-small;
+      }
+
+      &.is-medium ~ .icon {
+        font-size: $size-medium;
+      }
+
+      &.is-large ~ .icon {
+        font-size: $size-large;
+      }
+    }
+
+    .icon {
+      color: $input-icon;
+      height: 2.25em;
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      width: 2.25em;
+      z-index: 4;
+    }
+  }
+
+  &.has-icons-left {
+    .input,
+    .select select {
+      padding-left: 2.25em;
+    }
+
+    .icon.is-left {
+      left: 0;
+    }
+  }
+
+  &.has-icons-right {
+    .input,
+    .select select {
+      padding-right: 2.25em;
+    }
+
+    .icon.is-right {
+      right: 0;
     }
   }
 
@@ -421,8 +575,20 @@
       @include loader;
 
       position: absolute !important;
-      right: 8px;
-      top: 8px;
+      right: 0.625em;
+      top: 0.625em;
+    }
+
+    &.is-small:after {
+      font-size: $size-small;
+    }
+
+    &.is-medium:after {
+      font-size: $size-medium;
+    }
+
+    &.is-large:after {
+      font-size: $size-large;
     }
   }
 }

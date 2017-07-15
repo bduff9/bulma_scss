@@ -76,6 +76,8 @@
 }
 
 .modal-card-body {
+  @include overflow-touch;
+
   background-color: $white;
   flex-grow: 1;
   flex-shrink: 1;
@@ -91,7 +93,7 @@
   justify-content: center;
   overflow: hidden;
   position: fixed;
-  z-index: 1986;
+  z-index: 20;
 
   // Modifiers
   &.is-active {

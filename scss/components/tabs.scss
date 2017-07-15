@@ -1,12 +1,14 @@
 .tabs {
   @include block;
 
+  @include overflow-touch;
+
   @include unselectable;
 
   align-items: stretch;
   display: flex;
+  font-size: $size-normal;
   justify-content: space-between;
-  line-height: 24px;
   overflow: hidden;
   overflow-x: auto;
   white-space: nowrap;
@@ -18,7 +20,7 @@
     display: flex;
     justify-content: center;
     margin-bottom: -1px;
-    padding: 6px 12px;
+    padding: 0.5em 1em;
     vertical-align: top;
 
     &:hover {
@@ -32,8 +34,8 @@
 
     &.is-active {
       a {
-        border-bottom-color: $link;
-        color: $link;
+        border-bottom-color: $primary;
+        color: $primary;
       }
     }
   }
@@ -47,29 +49,29 @@
     justify-content: flex-start;
 
     &.is-left {
-      padding-right: 10px;
+      padding-right: 0.75em;
     }
 
     &.is-center {
       flex: none;
       justify-content: center;
-      padding-left: 10px;
-      padding-right: 10px;
+      padding-left: 0.75em;
+      padding-right: 0.75em;
     }
 
     &.is-right {
       justify-content: flex-end;
-      padding-left: 10px;
+      padding-left: 0.75em;
     }
   }
 
   .icon {
     &:first-child {
-      margin-right: 8px;
+      margin-right: 0.5em;
     }
 
     &:last-child {
-      margin-left: 8px;
+      margin-left: 0.5em;
     }
   }
 
@@ -91,8 +93,6 @@
     a {
       border: 1px solid transparent;
       border-radius: $radius $radius 0 0;
-      padding-bottom: 5px;
-      padding-top: 5px;
 
       &:hover {
         background-color: $background;
@@ -122,8 +122,6 @@
     a {
       border: 1px solid $border;
       margin-bottom: 0;
-      padding-bottom: 5px;
-      padding-top: 5px;
       position: relative;
 
       &:hover {
@@ -164,49 +162,13 @@
   // Sizes
   &.is-small {
     font-size: $size-small;
-
-    a {
-      padding: 2px 8px;
-    }
-
-    &.is-boxed,
-    &.is-toggle {
-      a {
-        padding-bottom: 1px;
-        padding-top: 1px;
-      }
-    }
   }
 
   &.is-medium {
     font-size: $size-medium;
-
-    a {
-      padding: 10px 16px;
-    }
-
-    &.is-boxed,
-    &.is-toggle {
-      a {
-        padding-bottom: 9px;
-        padding-top: 9px;
-      }
-    }
   }
 
   &.is-large {
     font-size: $size-large;
-
-    a {
-      padding: 14px 20px;
-    }
-
-    &.is-boxed,
-    &.is-toggle {
-      a {
-        padding-bottom: 13px;
-        padding-top: 13px;
-      }
-    }
   }
 }

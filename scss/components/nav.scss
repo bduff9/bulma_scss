@@ -1,4 +1,4 @@
-$nav-height: 50px !default;
+$nav-height: 3.25rem !default;
 
 // Components
 
@@ -16,8 +16,10 @@ $nav-height: 50px !default;
   display: flex;
   flex-grow: 0;
   flex-shrink: 0;
+  font-size: $size-normal;
   justify-content: center;
-  padding: 10px;
+  line-height: 1.5;
+  padding: 0.5rem 0.75rem;
 
   a {
     flex-grow: 1;
@@ -25,20 +27,16 @@ $nav-height: 50px !default;
   }
 
   img {
-    max-height: 24px;
-  }
-
-  .button + .button {
-    margin-left: 10px;
+    max-height: 1.75rem;
   }
 
   .tag {
-    &:first-child {
-      margin-right: 5px;
+    &:first-child:not(:last-child) {
+      margin-right: 0.5rem;
     }
 
-    &:last-child {
-      margin-left: 5px;
+    &:last-child:not(:first-child) {
+      margin-left: 0.5rem;
     }
   }
 
@@ -48,8 +46,8 @@ $nav-height: 50px !default;
   }
 }
 
-.nav-item a,
-a.nav-item {
+.nav-item a:not(.button),
+a.nav-item:not(.button) {
   color: $text-light;
 
   &:hover {
@@ -64,80 +62,89 @@ a.nav-item {
   &.is-tab {
     border-bottom: 1px solid transparent;
     border-top: 1px solid transparent;
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-bottom: calc(0.75rem - 1px);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: calc(0.75rem - 1px);
 
     &:hover {
-      border-bottom: 1px solid $link;
-      border-top: 1px solid transparent;
+      border-bottom-color: $primary;
+      border-top-color: transparent;
     }
 
     &.is-active {
-      border-bottom: 3px solid $link;
-      border-top: 3px solid transparent;
-      color: $link;
+      border-bottom: 3px solid $primary;
+      color: $primary;
+      padding-bottom: calc(0.75rem - 3px);
+    }
+  }
+
+  // Responsiveness
+  @include desktop {
+    &.is-brand {
+      padding-left: 0;
     }
   }
 }
 
 // Containers
 
-.nav-menu {
-  // Responsiveness
-  @include mobile {
-    background-color: $white;
-    box-shadow: 0 4px 7px rgba($black, 0.1);
-    left: 0;
-    display: none;
-    right: 0;
-    top: 100%;
-    position: absolute;
+.nav-left,
+.nav-right {
+  @include overflow-touch;
 
-    .nav-item {
-      border-top: 1px solid rgba($border, 0.5);
-      padding: 10px;
-    }
+  align-items: stretch;
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  max-width: 100%;
+  overflow: auto;
 
-    &.is-active {
-      display: block;
-    }
-  }
-
-
-  @include tablet-only {
-    padding-right: 20px;
+  @include widescreen {
+    flex-basis: 0;
   }
 }
 
 .nav-left {
-  align-items: stretch;
-  display: flex;
-  flex-basis: 0;
-  flex-grow: 1;
-  flex-shrink: 0;
   justify-content: flex-start;
-  overflow: hidden;
-  overflow-x: auto;
   white-space: nowrap;
+}
+
+.nav-right {
+  justify-content: flex-end;
 }
 
 .nav-center {
   align-items: stretch;
   display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
 }
 
-.nav-right {
+.nav-menu {
   // Responsiveness
-  @include tablet {
-    align-items: stretch;
-    display: flex;
-    flex-basis: 0;
-    flex-grow: 1;
-    flex-shrink: 0;
-    justify-content: flex-end;
+  @include mobile {
+    &.nav-right {
+      background-color: $white;
+      box-shadow: 0 4px 7px rgba($black, 0.1);
+      left: 0;
+      display: none;
+      right: 0;
+      top: 100%;
+      position: absolute;
+
+      .nav-item {
+        border-top: 1px solid rgba($border, 0.5);
+        padding: 0.75rem;
+      }
+
+      &.is-active {
+        display: block;
+      }
+    }
   }
 }
 
@@ -147,58 +154,20 @@ a.nav-item {
   align-items: stretch;
   background-color: $white;
   display: flex;
-  min-height: $nav-height;
+  height: $nav-height;
   position: relative;
   text-align: center;
-  z-index: 2;
+  z-index: 10;
 
   & > .container {
     align-items: stretch;
     display: flex;
     min-height: $nav-height;
     width: 100%;
-
-    & > .nav-left {
-      & > .nav-item:first-child:not(.is-tab) {
-        padding-left: 0;
-      }
-    }
-
-    & > .nav-right {
-      & > .nav-item:last-child:not(.is-tab) {
-        padding-right: 0;
-      }
-    }
-  }
-
-  .container > & {
-    & > .nav-left {
-      & > .nav-item:first-child:not(.is-tab) {
-        padding-left: 0;
-      }
-    }
-
-    & > .nav-right {
-      & > .nav-item:last-child:not(.is-tab) {
-        padding-right: 0;
-      }
-    }
   }
 
   // Modifiers
   &.has-shadow {
     box-shadow: 0 2px 3px rgba($black, 0.1);
-  }
-
-  // Responsiveness
-  @include touch {
-    & > .container,
-    .container > & {
-      & > .nav-left {
-        & > .nav-item.is-brand:first-child {
-          padding-left: 20px;
-        }
-      }
-    }
   }
 }

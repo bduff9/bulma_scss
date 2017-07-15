@@ -90,6 +90,21 @@ $displays: "block" "flex" "inline" "inline-block" "inline-flex";
   text-align: right;
 }
 
+@each $name, $pair in $colors {
+  $color: nth($pair, 1);
+
+  .has-text-#{$name} {
+    color: $color;
+  }
+
+  a.has-text-#{$name} {
+    &:hover,
+    &:focus {
+      color: darken($color, 10%);
+    }
+  }
+}
+
 // Visibility
 
 .is-hidden {
@@ -139,10 +154,6 @@ $displays: "block" "flex" "inline" "inline-block" "inline-flex";
 }
 
 // Other
-
-.is-disabled {
-  pointer-events: none;
-}
 
 .is-marginless {
   margin: 0 !important;

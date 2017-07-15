@@ -26,7 +26,7 @@
 }
 
 .hero-buttons {
-  margin-top: 20px;
+  margin-top: 1.5rem;
 
   // Responsiveness
   @include mobile {
@@ -34,7 +34,7 @@
       display: flex;
 
       &:not(:last-child) {
-        margin-bottom: 10px;
+        margin-bottom: 0.75rem;
       }
     }
   }
@@ -45,7 +45,7 @@
     justify-content: center;
 
     .button:not(:last-child) {
-      margin-right: 20px;
+      margin-right: 1.5rem;
     }
   }
 }
@@ -54,19 +54,14 @@
 
 .hero-head,
 .hero-foot {
+  flex-grow: 0;
   flex-shrink: 0;
 }
 
 .hero-body {
   flex-grow: 1;
   flex-shrink: 0;
-  padding: 40px 20px;
-
-  // Responsiveness
-  @include from(1240px) {
-    padding-left: 0;
-    padding-right: 0;
-  }
+  padding: 3rem 1.5rem;
 }
 
 // Main container
@@ -98,19 +93,19 @@
       background-color: $color;
       color: $color-invert;
 
+      a:not(.button),
+      strong {
+        color: inherit;
+      }
+
       .title {
         color: $color-invert;
-
-        a,
-        strong {
-          color: inherit;
-        }
       }
 
       .subtitle {
         color: rgba($color-invert, 0.9);
 
-        a,
+        a:not(.button),
         strong {
           color: $color-invert;
         }
@@ -179,6 +174,12 @@
         $gradient-bottom-right: lighten(saturate(adjust-hue($color, 10deg), 5%), 5%);
 
         background-image: linear-gradient(141deg, $gradient-top-left 0%, $color 71%, $gradient-bottom-right 100%);
+
+        @include mobile {
+          .nav-menu {
+            background-image: linear-gradient(141deg, $gradient-top-left 0%, $color 71%, $gradient-bottom-right 100%);
+          }
+        }
       }
 
       // Responsiveness
@@ -212,8 +213,8 @@
   &.is-medium {
     @include tablet {
       .hero-body {
-        padding-bottom: 120px;
-        padding-top: 120px;
+        padding-bottom: 9rem;
+        padding-top: 9rem;
       }
     }
   }
@@ -221,15 +222,14 @@
   &.is-large {
     @include tablet {
       .hero-body {
-        padding-bottom: 240px;
-        padding-top: 240px;
+        padding-bottom: 18rem;
+        padding-top: 18rem;
       }
     }
   }
 
+  &.is-halfheight,
   &.is-fullheight {
-    min-height: 100vh;
-
     .hero-body {
       align-items: center;
       display: flex;
@@ -239,5 +239,13 @@
         flex-shrink: 1;
       }
     }
+  }
+
+  &.is-halfheight {
+    min-height: 50vh;
+  }
+
+  &.is-fullheight {
+    min-height: 100vh;
   }
 }
