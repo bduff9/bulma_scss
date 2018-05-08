@@ -1,6 +1,6 @@
 Package.describe({
   name: 'bduff9:bulma',
-  version: '0.7.1-beta.1',
+  version: '0.7.1-beta.2',
   // Brief, one-line summary of the package.
   summary: 'Bulma css (v0.7.1), files are in .scss format for use in Meteor projects',
   // URL to the Git repository containing the source code for this package.

@@ -6,10 +6,10 @@
     "jgthms <bbxdesign@gmail.com>"
   ],
   "description": "Modern CSS framework based on Flexbox",
-  "main": "bulma.sass",
+  "main": "bulma.scss",
   "keywords": [
     "css",
-    "sass",
+    "scss",
     "flexbox",
     "responsive",
     "framework"

@@ -1,14 +1,14 @@
 {
   "removed": [
     {
-      "file": "sass/components/message.sass",
+      "file": "scss/components/message.scss",
       "before": "$message-body-border",
       "after": ["$message-body-border-color", "$message-body-border-width"]
     }
   ],
   "updated": [
     {
-      "file": "sass/utilities/initial-variables.sass",
+      "file": "scss/utilities/initial-variables.scss",
       "changes": [
         {
           "variable": "$gap",
@@ -28,7 +28,7 @@
       ]
     },
     {
-      "file": "sass/base/generic.sass",
+      "file": "scss/base/generic.scss",
       "changes": [
         {
           "variable": "$hr-background-color",
@@ -43,7 +43,7 @@
       ]
     },
     {
-      "file": "sass/elements/content.sass",
+      "file": "scss/elements/content.scss",
       "changes": [
         {
           "variable": "$content-heading-weight",
@@ -53,7 +53,7 @@
       ]
     },
     {
-      "file": "sass/components/message.sass",
+      "file": "scss/components/message.scss",
       "changes": [
         {
           "variable": "$message-header-padding",
@@ -68,7 +68,7 @@
       ]
     },
     {
-      "file": "sass/components/navbar.sass",
+      "file": "scss/components/navbar.scss",
       "changes": [
         {
           "variable": "$navbar-item-hover-background-color",
@@ -88,7 +88,7 @@
       ]
     },
     {
-      "file": "sass/layout/footer.sass",
+      "file": "scss/layout/footer.scss",
       "changes": [
         {
           "variable": "$footer-background-color",
@@ -100,7 +100,7 @@
   ],
   "new": [
     {
-      "file":"sass/components/breadcrumb.sass",
+      "file":"scss/components/breadcrumb.scss",
       "newcomers":[
         {
           "name": "$breadcrumb-item-padding-vertical",
@@ -113,7 +113,7 @@
       ]
     },
     {
-      "file":"sass/components/message.sass",
+      "file":"scss/components/message.scss",
       "newcomers":[
         {
           "name": "$message-body-border-color",
@@ -134,7 +134,7 @@
       ]
     },
     {
-      "file":"sass/components/navbar.sass",
+      "file":"scss/components/navbar.scss",
       "newcomers":[
         {
           "name": "$navbar-box-shadow-size",
@@ -159,7 +159,7 @@
       ]
     },
     {
-      "file":"sass/elements/title.sass",
+      "file":"scss/elements/title.scss",
       "newcomers":[
         {
           "name": "$title-line-height",
