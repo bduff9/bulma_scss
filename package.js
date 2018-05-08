@@ -1,6 +1,6 @@
 Package.describe({
   name: 'bduff9:bulma',
-  version: '0.7.1-beta.0',
+  version: '0.7.1-beta.1',
   // Brief, one-line summary of the package.
   summary: 'Bulma css (v0.7.1), files are in .scss format for use in Meteor projects',
   // URL to the Git repository containing the source code for this package.
@@ -10,7 +10,7 @@ Package.describe({
   documentation: 'README.md'
 });
 
-function getFilesFromFolder(packageName, folder) {
+function getFilesFromFolder (packageName, folder) {
   // local imports
   var _ = Npm.require('underscore');
   var fs = Npm.require('fs');
@@ -41,14 +41,14 @@ function getFilesFromFolder(packageName, folder) {
   return result;
 }
 
-Package.onUse(function(api) {
+Package.onUse(function (api) {
   var files = getFilesFromFolder('', '.');
 //console.log('files', files[1]);
-  api.use('fourseven:scss@3.10.0');
+  api.use('fourseven:scss@4.0.0');
   api.addFiles(files, 'client', { isImport: true });
 });
 
-Package.onTest(function(api) {
+Package.onTest(function (api) {
   api.use('ecmascript');
   api.use('tinytest');
   api.use('bduff9:bulma');
