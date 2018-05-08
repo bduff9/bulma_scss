@@ -1,10 +1,13 @@
+$progress-bar-background-color: $border !default;
+$progress-value-background-color: $text !default;
+
 .progress {
   @include block;
 
   -moz-appearance: none;
   -webkit-appearance: none;
   border: none;
-  border-radius: 290486px;
+  border-radius: $radius-rounded;
   display: block;
   height: $size-normal;
   overflow: hidden;
@@ -12,15 +15,20 @@
   width: 100%;
 
   &::-webkit-progress-bar {
-    background-color: $border;
+    background-color: $progress-bar-background-color;
   }
 
   &::-webkit-progress-value {
-    background-color: $text;
+    background-color: $progress-value-background-color;
   }
 
   &::-moz-progress-bar {
-    background-color: $text;
+    background-color: $progress-value-background-color;
+  }
+
+  &::-ms-fill {
+    background-color: $progress-value-background-color;
+    border: none;
   }
 
   // Colors
@@ -33,6 +41,10 @@
       }
 
       &::-moz-progress-bar {
+        background-color: $color;
+      }
+
+      &::-ms-fill {
         background-color: $color;
       }
     }

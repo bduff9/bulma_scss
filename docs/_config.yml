@@ -1,17 +1,16 @@
 # Meta
 
-title:         "Bulma: a modern CSS framework based on Flexbox"
-description:   "Bulma is an open source CSS framework based on Flexbox and built with Sass. It's 100% responsive, fully modular, and available for free."
+env:           "production"
+docs_file:     "bulma-docs.min"
 
 # Build
 
 markdown:      kramdown
 permalink:     pretty
-url:           http://bulma.io
+url:           https://bulma.io
+exclude:       ['icons', 'node_modules', 'templates', '.babelrc', 'bulma-docs.sass', 'docker-compose.yml', 'package.json', 'yarn.lock']
 
 # Variables
 
-documentation: "/documentation/overview/start/"
-download:      https://github.com/jgthms/bulma/archive/0.2.3.zip
-github:        https://github.com/jgthms/bulma
-version:       0.2.3
+download:      https://github.com/jgthms/bulma/releases/download/0.7.0/bulma-0.7.0.zip
+version:       0.7.0

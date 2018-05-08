@@ -4,10 +4,6 @@ Thanks for helping out! 😇
 
 * Make sure the issue hasn't been raised yet
 * Include **screenshots** and animated GIFs in your issue whenever possible
-* Tag your issue accordingly:
-    * is it about **Bulma** or about the **Docs**?
-    * is it a **Bug**, a **Feature**, a **Question**, or do you need **Help**?
-    * if it's a bug, is it a **Browser Bug** (only happens in one browser)?
 
 ### Submitting a Pull Request
 
@@ -17,8 +13,9 @@ Thanks for helping out! 😇
 * Limit the first line to 72 characters or fewer
 * Reference issues and pull requests liberally
 
-### Bulma Scss styleguide
+### Bulma Sass styleguide
 
+* **No semi-colons** `;` or **curly braces** `{` `}`
 * **No camelCase**
 * Use only **classes**
 * Order the CSS properties **alphabetically**
@@ -27,35 +24,48 @@ Thanks for helping out! 😇
   * nested tags
   * pseudo-classes
   * color modifiers
-  * size modifers
+  * size modifiers
   * modifiers
   * responsive styles
 * Add appropriate one-line comments for each of these sections within a CSS rule
 * **No trailing space**
 * End files with a **newline**
 
-```scss
-.element {
-  @extend .something;
-
-  @mixin somemixin() {
-    property: value;
-  }
-
-  span {
+```sass
+.element
+  @extend .something
+  +mixin
+  property: value
+  span
     // ...
-  }
-
-  div {
+  div
     // ...
-  }
-
-  .child {
+  .child
     // ...
-  }
-
-  &:pseudo-class {
+  &:pseudo-class
     // ...
-  }
-
+  // Colors
+  @each $name, $pair in $colors
+    // Loop
+  // Sizes
+  &.is-small
+    // ...
+  &.is-medium
+    // ...
+  &.is-large
+    // ...
+  // Modifiers (ordered alphabetically)
+  &.has-icons
+    // ...
+  &.is-active
+    // ...
+  &.is-fullwidth
+    // ...
+  // Responsiveness
+  +mobile
+    // ...
+  +tablet
+    // ...
+  +desktop
+    // ...
 ```

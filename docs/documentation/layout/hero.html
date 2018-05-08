@@ -1,22 +1,47 @@
 ---
+title: Hero
 layout: documentation
+hide_categories: true
+hide_fortyfour: true
 doc-tab: layout
 doc-subtab: hero
+breadcrumb:
+- home
+- documentation
+- layout
+- layout-hero
+meta:
+  colors: true
+  sizes: true
+  variables: true
 ---
 
-{% include subnav-layout.html %}
+<div class="content">
+  <p>
+    The hero component allows you to add a <strong>full width banner</strong> to your webpage, which can optionally cover the full height of the page as well.
+  </p>
+  <p>
+    The basic requirement of this component are:
+  </p>
+  <ul>
+    <li>
+      <code>hero</code> as the main container
+      <ul>
+        <li>
+          <code>hero-body</code> as a direct child, in which you can put all your content
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <p>
+    For the <a href="#full-height-hero">full height hero</a> to work, you will also need a <code>hero-head</code> and a <code>hero-foot</code>.
+  </p>
+</div>
 
-<section class="section">
-  <div class="container">
-    <h1 class="title">Hero</h1>
-    <h2 class="subtitle">
-      An imposing <strong>hero banner</strong> to showcase something
-    </h2>
-  </div>
-</section>
+{% include layout/main-close.html show_categories=true %}
 
 <section class="section is-fullwidth">
-  <div class="example">
+  <div class="bd-example">
     <section class="hero">
       <div class="hero-body">
         <div class="container">
@@ -30,6 +55,7 @@ doc-subtab: hero
       </div>
     </section>
   </div>
+</section>
 
 {% highlight html %}
 <section class="hero">
@@ -49,15 +75,15 @@ doc-subtab: hero
 
 <section class="section">
   <div class="container">
-    <h3 class="title">Colors</h3>
+    {% include elements/anchor.html name="Colors" %}
     <h4 class="subtitle">
-      As with buttons, you can choose one of the <strong>7 different colors</strong>
+        As with buttons, you can choose one of the <strong>7 different colors</strong>:
     </h4>
   </div>
 </section>
 
 <section class="section is-fullwidth">
-  <div class="example">
+  <div class="bd-example">
     <section class="hero is-primary">
       <div class="hero-body">
         <div class="container">
@@ -87,7 +113,7 @@ doc-subtab: hero
 </section>
 {% endhighlight %}
 
-  <div class="example">
+  <div class="bd-example">
     <section class="hero is-info">
       <div class="hero-body">
         <div class="container">
@@ -102,7 +128,7 @@ doc-subtab: hero
     </section>
   </div>
 
-  <div class="example">
+  <div class="bd-example">
     <section class="hero is-success">
       <div class="hero-body">
         <div class="container">
@@ -117,7 +143,7 @@ doc-subtab: hero
     </section>
   </div>
 
-  <div class="example">
+  <div class="bd-example">
     <section class="hero is-warning">
       <div class="hero-body">
         <div class="container">
@@ -132,7 +158,7 @@ doc-subtab: hero
     </section>
   </div>
 
-  <div class="example">
+  <div class="bd-example">
     <section class="hero is-danger">
       <div class="hero-body">
         <div class="container">
@@ -147,7 +173,7 @@ doc-subtab: hero
     </section>
   </div>
 
-  <div class="example">
+  <div class="bd-example">
     <section class="hero is-light">
       <div class="hero-body">
         <div class="container">
@@ -162,7 +188,7 @@ doc-subtab: hero
     </section>
   </div>
 
-  <div class="example">
+  <div class="bd-example">
     <section class="hero is-dark">
       <div class="hero-body">
         <div class="container">
@@ -180,10 +206,7 @@ doc-subtab: hero
 
 <section class="section">
   <div class="container">
-    <h3 class="title">
-      Gradients
-      <span class="tag is-warning">Experimental</span>
-    </h3>
+    {% include elements/anchor.html name="Gradients" %}
     <h4 class="subtitle">
       By adding the <code>is-bold</code> modifier, you can generate a subtle <strong>gradient</strong>
     </h4>
@@ -191,7 +214,7 @@ doc-subtab: hero
 </section>
 
 <section class="section is-fullwidth">
-  <div class="example">
+  <div class="bd-example">
     <section class="hero is-medium is-primary is-bold">
       <div class="hero-body">
         <div class="container">
@@ -219,7 +242,7 @@ doc-subtab: hero
   </div>
 </section>
 {% endhighlight %}
-  <div class="example">
+  <div class="bd-example">
     <section class="hero is-medium is-info is-bold">
       <div class="hero-body">
         <div class="container">
@@ -233,7 +256,7 @@ doc-subtab: hero
       </div>
     </section>
   </div>
-  <div class="example">
+  <div class="bd-example">
     <section class="hero is-medium is-success is-bold">
       <div class="hero-body">
         <div class="container">
@@ -247,7 +270,7 @@ doc-subtab: hero
       </div>
     </section>
   </div>
-  <div class="example">
+  <div class="bd-example">
     <section class="hero is-medium is-warning is-bold">
       <div class="hero-body">
         <div class="container">
@@ -261,7 +284,7 @@ doc-subtab: hero
       </div>
     </section>
   </div>
-  <div class="example">
+  <div class="bd-example">
     <section class="hero is-medium is-danger is-bold">
       <div class="hero-body">
         <div class="container">
@@ -275,7 +298,7 @@ doc-subtab: hero
       </div>
     </section>
   </div>
-  <div class="example">
+  <div class="bd-example">
     <section class="hero is-medium is-light is-bold">
       <div class="hero-body">
         <div class="container">
@@ -289,7 +312,7 @@ doc-subtab: hero
       </div>
     </section>
   </div>
-  <div class="example">
+  <div class="bd-example">
     <section class="hero is-medium is-dark is-bold">
       <div class="hero-body">
         <div class="container">
@@ -307,7 +330,7 @@ doc-subtab: hero
 
 <section class="section">
   <div class="container">
-    <h3 class="title">Sizes</h3>
+    {% include elements/anchor.html name="Sizes" %}
     <h4 class="subtitle">
       You can have even more imposing banners by using one of <strong>3 different sizes</strong>
     </h4>
@@ -315,7 +338,7 @@ doc-subtab: hero
 </section>
 
 <section class="section is-fullwidth">
-  <div class="example">
+  <div class="bd-example">
     <section class="hero is-primary is-medium">
       <div class="hero-body">
         <div class="container">
@@ -345,7 +368,7 @@ doc-subtab: hero
 </section>
 {% endhighlight %}
 
-  <div class="example">
+  <div class="bd-example">
     <section class="hero is-info is-large">
       <div class="hero-body">
         <div class="container">
@@ -375,7 +398,7 @@ doc-subtab: hero
 </section>
 {% endhighlight %}
 
-  <div class="example is-fullwidth">
+  <div class="bd-example is-fullwidth">
     <section class="hero is-success is-fullheight">
       <div class="hero-body">
         <div class="container">
@@ -408,7 +431,7 @@ doc-subtab: hero
 
 <section class="section">
   <div class="container">
-    <h3 class="title">Full height hero</h3>
+    {% include elements/anchor.html name="Full height hero" %}
     <h4 class="subtitle">And vertically centered</h4>
     <div class="content">
       <p>You can split the hero in <strong>3 vertical parts</strong>:</p>
@@ -426,122 +449,45 @@ doc-subtab: hero
   </div>
 </section>
 
-<section class="section is-fullwidth">
-  <div class="example">
-    <section class="hero is-primary is-medium">
-      <div class="hero-head">
-        <header class="nav">
-          <div class="container">
-            <div class="nav-left">
-              <a class="nav-item">
-                <img src="{{ site.url }}/images/bulma-type-white.png" alt="Logo">
-              </a>
-            </div>
-            <span class="nav-toggle">
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
-            <div class="nav-right nav-menu">
-              <a class="nav-item is-active">
-                Home
-              </a>
-              <a class="nav-item">
-                Examples
-              </a>
-              <a class="nav-item">
-                Documentation
-              </a>
-              <span class="nav-item">
-                <a class="button is-primary is-inverted">
-                  <span class="icon">
-                    <i class="fa fa-github"></i>
-                  </span>
-                  <span>Download</span>
-                </a>
-              </span>
-            </div>
-          </div>
-        </header>
-      </div>
-
-      <div class="hero-body">
-        <div class="container has-text-centered">
-          <p class="title">
-            Title
-          </p>
-          <p class="subtitle">
-            Subtitle
-          </p>
-        </div>
-      </div>
-
-      <div class="hero-foot">
-        <nav class="tabs">
-          <div class="container">
-            <ul>
-              <li class="is-active">
-                <a>Overview</a>
-              </li>
-              <li>
-                <a>Modifiers</a>
-              </li>
-              <li>
-                <a>Grid</a>
-              </li>
-              <li>
-                <a>Elements</a>
-              </li>
-              <li>
-                <a>Components</a>
-              </li>
-              <li>
-                <a>Layout</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-    </section>
-  </div>
-
-{% highlight html %}
+{% capture heroNavbarA %}
 <section class="hero is-primary is-medium">
-  <!-- Hero header: will stick at the top -->
+  <!-- Hero head: will stick at the top -->
   <div class="hero-head">
-    <header class="nav">
+    <nav class="navbar">
       <div class="container">
-        <div class="nav-left">
-          <a class="nav-item">
-            <img src="images/bulma-type-white.png" alt="Logo">
+        <div class="navbar-brand">
+          <a class="navbar-item">
+            <img src="{{ site.url }}/images/bulma-type-white.png" alt="Logo">
           </a>
-        </div>
-        <span class="nav-toggle">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-        <div class="nav-right nav-menu">
-          <a class="nav-item is-active">
-            Home
-          </a>
-          <a class="nav-item">
-            Examples
-          </a>
-          <a class="nav-item">
-            Documentation
-          </a>
-          <span class="nav-item">
-            <a class="button is-primary is-inverted">
-              <span class="icon">
-                <i class="fa fa-github"></i>
-              </span>
-              <span>Download</span>
-            </a>
+          <span class="navbar-burger burger" data-target="navbarMenuHeroA">
+            <span></span>
+            <span></span>
+            <span></span>
           </span>
         </div>
+        <div id="navbarMenuHeroA" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item is-active">
+              Home
+            </a>
+            <a class="navbar-item">
+              Examples
+            </a>
+            <a class="navbar-item">
+              Documentation
+            </a>
+            <span class="navbar-item">
+              <a class="button is-primary is-inverted">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Download</span>
+              </a>
+            </span>
+          </div>
+        </div>
       </div>
-    </header>
+    </nav>
   </div>
 
   <!-- Hero content: will be in the middle -->
@@ -572,267 +518,124 @@ doc-subtab: hero
     </nav>
   </div>
 </section>
-{% endhighlight %}
+{% endcapture %}
 
-  <div class="example">
-    <section class="hero is-info is-large">
-      <div class="hero-head">
-        <header class="nav">
-          <div class="container">
-            <div class="nav-left">
-              <a class="nav-item">
-                <img src="{{ site.url }}/images/bulma-type-white.png" alt="Logo">
-              </a>
-            </div>
-            <span class="nav-toggle">
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
-            <div class="nav-right nav-menu">
-              <a class="nav-item is-active">
-                Home
-              </a>
-              <a class="nav-item">
-                Examples
-              </a>
-              <a class="nav-item">
-                Documentation
-              </a>
-              <span class="nav-item">
-                <a class="button is-info is-inverted">
-                  <span class="icon">
-                    <i class="fa fa-github"></i>
-                  </span>
-                  <span>Download</span>
-                </a>
-              </span>
-            </div>
-          </div>
-        </header>
-      </div>
-
-      <div class="hero-body">
-        <div class="container has-text-centered">
-          <p class="title">
-            Title
-          </p>
-          <p class="subtitle">
-            Subtitle
-          </p>
-        </div>
-      </div>
-
-      <div class="hero-foot">
-        <nav class="tabs is-boxed is-fullwidth">
-          <div class="container">
-            <ul>
-              <li class="is-active">
-                <a>Overview</a>
-              </li>
-              <li>
-                <a>Modifiers</a>
-              </li>
-              <li>
-                <a>Grid</a>
-              </li>
-              <li>
-                <a>Elements</a>
-              </li>
-              <li>
-                <a>Components</a>
-              </li>
-              <li>
-                <a>Layout</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-    </section>
-  </div>
-
-{% highlight html %}
+{% capture heroNavbarB %}
 <section class="hero is-info is-large">
-  <!-- Hero header: will stick at the top -->
   <div class="hero-head">
-    <header class="nav">
+    <nav class="navbar">
       <div class="container">
-        <div class="nav-left">
-          <a class="nav-item">
-            <img src="images/bulma-type-white.png" alt="Logo">
+        <div class="navbar-brand">
+          <a class="navbar-item">
+            <img src="{{ site.url }}/images/bulma-type-white.png" alt="Logo">
           </a>
-        </div>
-        <span class="nav-toggle">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-        <div class="nav-right nav-menu">
-          <a class="nav-item is-active">
-            Home
-          </a>
-          <a class="nav-item">
-            Examples
-          </a>
-          <a class="nav-item">
-            Documentation
-          </a>
-          <span class="nav-item">
-            <a class="button is-info is-inverted">
-              <span class="icon">
-                <i class="fa fa-github"></i>
-              </span>
-              <span>Download</span>
-            </a>
+          <span class="navbar-burger burger" data-target="navbarMenuHeroB">
+            <span></span>
+            <span></span>
+            <span></span>
           </span>
         </div>
-      </div>
-    </header>
-  </div>
-
-  <!-- Hero content: will be in the middle -->
-  <div class="hero-body">
-    <div class="container has-text-centered">
-      <h1 class="title">
-        Title
-      </h1>
-      <h2 class="subtitle">
-        Subtitle
-      </h2>
-    </div>
-  </div>
-
-  <!-- Hero footer: will stick at the bottom -->
-  <div class="hero-foot">
-    <nav class="tabs is-boxed is-fullwidth">
-      <div class="container">
-        <ul>
-          <li class="is-active"><a>Overview</a></li>
-          <li><a>Modifiers</a></li>
-          <li><a>Grid</a></li>
-          <li><a>Elements</a></li>
-          <li><a>Components</a></li>
-          <li><a>Layout</a></li>
-        </ul>
-      </div>
-    </nav>
-  </div>
-</section>
-{% endhighlight %}
-
-  <div class="example is-fullwidth">
-    <section class="hero is-success is-fullheight">
-      <div class="hero-head">
-        <header class="nav">
-          <div class="container">
-            <div class="nav-left">
-              <a class="nav-item">
-                <img src="{{ site.url }}/images/bulma-type-white.png" alt="Logo">
+        <div id="navbarMenuHeroB" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item is-active">
+              Home
+            </a>
+            <a class="navbar-item">
+              Examples
+            </a>
+            <a class="navbar-item">
+              Documentation
+            </a>
+            <span class="navbar-item">
+              <a class="button is-info is-inverted">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Download</span>
               </a>
-            </div>
-            <span class="nav-toggle">
-              <span></span>
-              <span></span>
-              <span></span>
             </span>
-            <div class="nav-right nav-menu">
-              <a class="nav-item is-active">
-                Home
-              </a>
-              <a class="nav-item">
-                Examples
-              </a>
-              <a class="nav-item">
-                Documentation
-              </a>
-              <span class="nav-item">
-                <a class="button is-success is-inverted">
-                  <span class="icon">
-                    <i class="fa fa-github"></i>
-                  </span>
-                  <span>Download</span>
-                </a>
-              </span>
-            </div>
           </div>
-        </header>
-      </div>
-
-      <div class="hero-body">
-        <div class="container has-text-centered">
-          <p class="title">
-            Title
-          </p>
-          <p class="subtitle">
-            Subtitle
-          </p>
         </div>
       </div>
-
-      <div class="hero-foot">
-        <nav class="tabs is-boxed is-fullwidth">
-          <div class="container">
-            <ul>
-              <li class="is-active">
-                <a>Overview</a>
-              </li>
-              <li>
-                <a>Modifiers</a>
-              </li>
-              <li>
-                <a>Grid</a>
-              </li>
-              <li>
-                <a>Elements</a>
-              </li>
-              <li>
-                <a>Components</a>
-              </li>
-              <li>
-                <a>Layout</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-    </section>
+    </nav>
   </div>
 
-{% highlight html %}
-<section class="hero is-success is-fullheight">
-  <!-- Hero header: will stick at the top -->
-  <div class="hero-head">
-    <header class="nav">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <p class="title">
+        Title
+      </p>
+      <p class="subtitle">
+        Subtitle
+      </p>
+    </div>
+  </div>
+
+  <div class="hero-foot">
+    <nav class="tabs is-boxed is-fullwidth">
       <div class="container">
-        <div class="nav-left">
-          <a class="nav-item">
-            <img src="images/bulma-type-white.png" alt="Logo">
+        <ul>
+          <li class="is-active">
+            <a>Overview</a>
+          </li>
+          <li>
+            <a>Modifiers</a>
+          </li>
+          <li>
+            <a>Grid</a>
+          </li>
+          <li>
+            <a>Elements</a>
+          </li>
+          <li>
+            <a>Components</a>
+          </li>
+          <li>
+            <a>Layout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</section>
+{% endcapture %}
+
+{% capture heroNavbarC %}
+<section class="hero is-success is-fullheight">
+  <!-- Hero head: will stick at the top -->
+  <div class="hero-head">
+    <header class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item">
+            <img src="{{ site.url }}/images/bulma-type-white.png" alt="Logo">
           </a>
-        </div>
-        <span class="nav-toggle">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-        <div class="nav-right nav-menu">
-          <a class="nav-item is-active">
-            Home
-          </a>
-          <a class="nav-item">
-            Examples
-          </a>
-          <a class="nav-item">
-            Documentation
-          </a>
-          <span class="nav-item">
-            <a class="button is-success is-inverted">
-              <span class="icon">
-                <i class="fa fa-github"></i>
-              </span>
-              <span>Download</span>
-            </a>
+          <span class="navbar-burger burger" data-target="navbarMenuHeroC">
+            <span></span>
+            <span></span>
+            <span></span>
           </span>
+        </div>
+        <div id="navbarMenuHeroC" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item is-active">
+              Home
+            </a>
+            <a class="navbar-item">
+              Examples
+            </a>
+            <a class="navbar-item">
+              Documentation
+            </a>
+            <span class="navbar-item">
+              <a class="button is-success is-inverted">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Download</span>
+              </a>
+            </span>
+          </div>
         </div>
       </div>
     </header>
@@ -866,5 +669,14 @@ doc-subtab: hero
     </nav>
   </div>
 </section>
-{% endhighlight %}
+{% endcapture %}
+
+<section class="section is-fullwidth">
+  {% include elements/snippet.html content=heroNavbarA horizontal=true more=true %}
+  {% include elements/snippet.html content=heroNavbarB horizontal=true more=true %}
+  {% include elements/snippet.html content=heroNavbarC horizontal=true more=true %}
 </section>
+
+{% include layout/main-open.html %}
+
+{% include elements/variables.html type='component' %}

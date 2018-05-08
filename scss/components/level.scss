@@ -1,69 +1,3 @@
-.level-item {
-  align-items: center;
-  display: flex;
-  flex-basis: auto;
-  flex-grow: 0;
-  flex-shrink: 0;
-  justify-content: center;
-
-  .title,
-  .subtitle {
-    margin-bottom: 0;
-  }
-
-  // Responsiveness
-  @include mobile {
-    &:not(:last-child) {
-      margin-bottom: 0.75rem;
-    }
-  }
-}
-
-.level-left,
-.level-right {
-  flex-basis: auto;
-  flex-grow: 0;
-  flex-shrink: 0;
-
-  .level-item {
-    &:not(:last-child) {
-      margin-right: 0.75rem;
-    }
-
-    // Modifiers
-    &.is-flexible {
-      flex-grow: 1;
-    }
-  }
-}
-
-.level-left {
-  align-items: center;
-  justify-content: flex-start;
-
-  // Responsiveness
-  @include mobile {
-    & + .level-right {
-      margin-top: 1.5rem;
-    }
-  }
-
-
-  @include tablet {
-    display: flex;
-  }
-}
-
-.level-right {
-  align-items: center;
-  justify-content: flex-end;
-
-  // Responsiveness
-  @include tablet {
-    display: flex;
-  }
-}
-
 .level {
   @include block;
 
@@ -100,6 +34,8 @@
       &:not(.is-narrow) {
         flex-grow: 1;
       }
+
+      margin-right: 0.75rem;
     }
   }
 
@@ -112,5 +48,74 @@
         flex-grow: 1;
       }
     }
+  }
+}
+
+.level-item {
+  align-items: center;
+  display: flex;
+  flex-basis: auto;
+  flex-grow: 0;
+  flex-shrink: 0;
+  justify-content: center;
+
+  .title,
+  .subtitle {
+    margin-bottom: 0;
+  }
+
+  // Responsiveness
+  @include mobile {
+    &:not(:last-child) {
+      margin-bottom: 0.75rem;
+    }
+  }
+}
+
+.level-left,
+.level-right {
+  flex-basis: auto;
+  flex-grow: 0;
+  flex-shrink: 0;
+
+  .level-item {
+    // Modifiers
+    &.is-flexible {
+      flex-grow: 1;
+    }
+
+    // Responsiveness
+    @include tablet {
+      &:not(:last-child) {
+        margin-right: 0.75rem;
+      }
+    }
+  }
+}
+
+.level-left {
+  align-items: center;
+  justify-content: flex-start;
+
+  // Responsiveness
+  @include mobile {
+    & + .level-right {
+      margin-top: 1.5rem;
+    }
+  }
+
+
+  @include tablet {
+    display: flex;
+  }
+}
+
+.level-right {
+  align-items: center;
+  justify-content: flex-end;
+
+  // Responsiveness
+  @include tablet {
+    display: flex;
   }
 }

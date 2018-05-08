@@ -1,7 +1,7 @@
 # Files
 .DS_Store
 .ruby-version
-test.scss
+test.sass
 npm-debug.log
 
 # Folders
@@ -10,3 +10,4 @@ npm-debug.log
 _gh_pages
 _site
 node_modules
+test/output/
