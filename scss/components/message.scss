@@ -19,7 +19,7 @@ $message-body-pre-code-background-color: transparent !default;
 $message-header-body-border-width: 0 !default;
 
 .message {
-  @include block;
+  @extend %block;
 
   background-color: $message-background-color;
   border-radius: $message-radius;
@@ -29,7 +29,7 @@ $message-header-body-border-width: 0 !default;
     color: currentColor;
   }
 
-  a:not(.button):not(.tag) {
+  a:not(.button):not(.tag):not(.dropdown-item) {
     color: currentColor;
     text-decoration: underline;
   }

@@ -21,7 +21,7 @@
 // Overlay
 
 .is-overlay {
-  @include overlay;
+  @extend %overlay;
 }
 
 // Typography
@@ -201,6 +201,26 @@ $alignments: ("centered": "center", "justified": "justify", "left": "left", "rig
   font-weight: $weight-bold !important;
 }
 
+.is-family-primary {
+  font-family: $family-primary !important;
+}
+
+.is-family-secondary {
+  font-family: $family-secondary !important;
+}
+
+.is-family-sans-serif {
+  font-family: $family-sans-serif !important;
+}
+
+.is-family-monospace {
+  font-family: $family-monospace !important;
+}
+
+.is-family-code {
+  font-family: $family-code !important;
+}
+
 // Visibility
 
 $displays: "block" "flex" "inline" "inline-block" "inline-flex";
@@ -275,6 +295,17 @@ $displays: "block" "flex" "inline" "inline-block" "inline-flex";
 
 .is-hidden {
   display: none !important;
+}
+
+.is-sr-only {
+  border: none !important;
+  clip: rect(0, 0, 0, 0) !important;
+  height: 0.01em !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  width: 0.01em !important;
 }
 
 @include mobile {
@@ -426,5 +457,5 @@ $displays: "block" "flex" "inline" "inline-block" "inline-flex";
 }
 
 .is-unselectable {
-  @include unselectable;
+  @extend %unselectable;
 }

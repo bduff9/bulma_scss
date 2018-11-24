@@ -1,8 +1,10 @@
 .bd-side-sponsors {
-  margin-top: 1.5rem;
+  margin-top: 3rem;
+  text-align: center;
 }
 
-.bd-side-sponsor-label {
+.bd-side-sponsor-label,
+.bd-banner-label {
   color: $grey-light;
   font-size: 0.75rem;
   margin-bottom: 0.75rem;
@@ -22,9 +24,8 @@
 .bd-banner {
   border-radius: $radius-large;
   display: block;
-  overflow: hidden;
-  margin-top: 1.5rem;
-  padding: 1.5rem;
+  margin-top: 3rem;
+  padding-bottom: 1.5rem;
   position: relative;
   text-align: center;
   transition-duration: $speed;
@@ -43,11 +44,9 @@
     color: $white;
   }
 
-  &.is-fortyfour {
-    background-color: $white;
-    border: 2px solid $background;
-  }
-
+  // &.is-fortyfour
+  //   background-color: $white
+  //   border: 2px solid $background
   .button {
     transform-origin: center;
     transition-duration: $speed;
@@ -63,7 +62,7 @@
     }
 
     .button {
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
   }
 }
@@ -86,9 +85,10 @@
 }
 
 .bd-banner-text {
+  display: none;
   font-size: 0.875em;
   line-height: 1.25;
-  padding: 0 0.5em;
+  margin-bottom: 0.5rem;
   position: relative;
 }
 
@@ -99,6 +99,9 @@
 
   img {
     display: inline-block;
+
+    // left: -8px
+    // position: relative
     vertical-align: top;
   }
 }

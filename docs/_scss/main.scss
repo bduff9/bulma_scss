@@ -3,6 +3,29 @@
   position: relative;
 }
 
+.bd-figure {
+  @include block;
+
+  align-items: center;
+  border: 2px solid $white-ter;
+  border-radius: $radius;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  img {
+    margin: 1em;
+  }
+
+  figcaption {
+    align-self: stretch;
+    background-color: $white-ter;
+    color: $text-light;
+    font-size: $size-small;
+    padding: 1em;
+  }
+}
+
 // Lead
 
 .bd-lead {
@@ -61,9 +84,7 @@
 }
 
 .bd-header {
-  border-bottom: 2px solid $background;
   margin-bottom: $main-spacing;
-  padding-bottom: $main-spacing;
 
   .subtitle {
     color: $text-light;
@@ -78,12 +99,62 @@
   }
 }
 
+.bd-tabs {
+  margin-bottom: $main-spacing;
+}
+
+@include mobile {
+  .bd-tabs {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+
+    .tabs {
+      ul {
+        flex-wrap: nowrap;
+      }
+    }
+  }
+}
+
+
+@include tablet {
+  .bd-tabs {
+    .tabs {
+      overflow: visible;
+
+      ul,
+      a {
+        border-bottom-color: $white-ter;
+        border-bottom-width: 2px;
+      }
+
+      a {
+        margin-bottom: -2px;
+      }
+
+      li:not(.is-active) a:hover {
+        border-bottom-color: $border;
+      }
+
+      ul {
+        flex-wrap: wrap;
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+
 .bd-content {
   hr:first-child {
     display: none;
 
     & + .bd-anchor-title {
       padding-top: 0;
+
+      .bd-anchor-link {
+        top: 0;
+      }
     }
   }
 }
@@ -188,6 +259,16 @@
   &.is-active {
     color: $link;
   }
+
+  .tag {
+    border-radius: 2px;
+    font-family: Verdana;
+    font-size: 0.5rem;
+    font-weight: bold;
+    height: 2.25em;
+    margin-left: 0.5em;
+    vertical-align: text-bottom;
+  }
 }
 
 .bd-category-list {
@@ -251,14 +332,14 @@
 }
 
 
-@include mobile {
+@include touch {
   .bd-side-background {
     display: none;
   }
 }
 
 
-@include tablet {
+@include desktop {
   .bd-duo {
     display: flex;
   }
@@ -297,7 +378,7 @@
   .bd-header {
     align-items: center;
     display: flex;
-    min-height: 130px;
+    min-height: 140px;
   }
 
   .bd-header-titles {

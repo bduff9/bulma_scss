@@ -1,6 +1,6 @@
 {
   "name": "bulma_scss",
-  "version": "0.7.1-beta.2",
+  "version": "0.7.2-rc.0",
   "homepage": "https://bulma.io",
   "author": "Brian Duffey <bduff9@gmail.com> (http://asitewithnoname.com)",
   "description": "Modern CSS framework based on Flexbox, scss version",
@@ -32,7 +32,7 @@
     "build-autoprefix": "postcss --use autoprefixer --map false --output css/bulma.css css/bulma.css",
     "build-cleancss": "cleancss -o css/bulma.min.css css/bulma.css",
     "build-clean": "rimraf css",
-    "build-sass": "node-sass --output-style expanded --source-map true bulma.sass css/bulma.css",
+    "build-sass": "node-sass --output-style expanded --source-map true bulma.scss css/bulma.css",
     "deploy": "npm run build",
     "start": "npm run build-sass -- --watch"
   },
