@@ -13,4 +13,5 @@
 - Remove .sass file extensions
 - Compile css and maps with `npm i && npm run build`
 - Change version in package.json
-- Commit and deploy
+- Commit and deploy to npm with `npm publish`
+- Update package.js and deploy to atmosphere with `meteor publish`
