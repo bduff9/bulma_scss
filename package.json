@@ -1,6 +1,6 @@
 {
   "name": "bulma_scss",
-  "version": "0.8.2",
+  "version": "0.8.2-rc.0",
   "homepage": "https://bulma.io",
   "author": "Brian Duffey <bduff9@gmail.com> (http://asitewithnoname.com)",
   "description": "Modern CSS framework based on Flexbox, scss version",

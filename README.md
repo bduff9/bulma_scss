@@ -6,8 +6,8 @@ This is the unofficial scss version of Bulma.  For all questions or concerns abo
 
 Bulma is a **modern CSS framework** based on [Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes).
 
-[![npm](https://img.shields.io/npm/v/bulma.svg)][npm-link]
-[![npm](https://img.shields.io/npm/dm/bulma.svg)][npm-link]
+[![npm](https://img.shields.io/npm/v/bulma_scss.svg)](https://www.npmjs.com/package/bulma_scss)
+[![npm](https://img.shields.io/npm/dm/bulma_scss.svg)](https://www.npmjs.com/package/bulma_scss)
 [![](https://data.jsdelivr.com/v1/package/npm/bulma/badge)](https://www.jsdelivr.com/package/npm/bulma)
 [![Awesome][awesome-badge]][awesome-link]
 [![Join the chat at https://gitter.im/jgthms/bulma](https://badges.gitter.im/jgthms/bulma.svg)](https://gitter.im/jgthms/bulma)
