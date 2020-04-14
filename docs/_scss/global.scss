@@ -3,6 +3,113 @@ svg {
   max-width: 100%;
 }
 
+.bd-notice {
+  background-color: $primary;
+  color: $primary-invert;
+  padding: 1em;
+  text-align: center;
+}
+
+.bd-notice-body {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  a,
+  strong {
+    color: currentColor;
+  }
+
+  a {
+    border-bottom: 1px solid rgba($scheme-main, 0.5);
+    padding-bottom: 2px;
+
+    &:hover {
+      border-bottom-color: $scheme-main;
+    }
+  }
+
+  span {
+    margin: 0 0.25em;
+    opacity: 0.5;
+  }
+}
+
+@include mobile {
+  .bd-notice {
+    font-size: 0.75rem;
+  }
+
+  .bd-notice-body {
+    flex-wrap: wrap;
+
+    p:first-child {
+      width: 100%;
+    }
+  }
+}
+
+
+@include tablet {
+  .bd-notice-body {
+    p:first-child {
+      margin-right: 1em;
+    }
+  }
+}
+
+
+$github-pink: #ea4aaa;
+
+.bd-github-button {
+  background-color: $github-pink;
+
+  // background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%)
+  border-color: $github-pink !important;
+
+  // color: #24292e
+  color: #fff;
+  font-size: 0.875rem;
+  height: auto;
+  padding: calc(0.5em - 1px) 1em;
+  position: relative;
+
+  strong {
+    font-weight: $weight-semibold;
+    margin-top: -2px;
+  }
+
+  .icon {
+    color: inherit;
+  }
+
+  .tag {
+    font-size: 0.5rem;
+    font-style: normal;
+    margin: (-1px) -8px 0 7px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: darken($github-pink, 5%);
+  }
+
+  &:active {
+    background-color: darken($github-pink, 10%);
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: #fff;
+
+    // background-image: linear-gradient(-180deg, #f0f3f6, #e6ebf1 90%)
+    // background-position: -.5em
+    // border-color: #1b1f2359
+ 
+  }
+}
+
 .bd-patreon-button {
   display: inline-block;
   position: relative;
@@ -50,8 +157,8 @@ $carbon-poweredby-height: 20px;
   position: relative;
 
   &:hover {
-    background-color: $white;
-    box-shadow: 0 0 0 $carbon-shadow-size $white;
+    background-color: $scheme-main;
+    box-shadow: 0 0 0 $carbon-shadow-size $scheme-main;
   }
 
   @include tablet {
@@ -127,7 +234,7 @@ $carbon-poweredby-height: 20px;
 
   .carbon-poweredby {
     bottom: 0;
-    color: $grey-light;
+    color: $border-hover;
     display: inline;
     font-size: $size-small;
     line-height: $carbon-poweredby-height;
@@ -136,6 +243,29 @@ $carbon-poweredby-height: 20px;
 
     &:hover {
       text-decoration: underline;
+    }
+  }
+}
+
+@include until($fullhd) {
+  .bd-navbar-icon {
+    display: none;
+  }
+}
+
+
+@include until($widescreen) {
+  .bd-navbar .bd-navbar-item-backers {
+    display: none;
+  }
+}
+
+
+@include widescreen {
+  #moreDropdown {
+    .navbar-item:first-child,
+    .navbar-divider:nth-child(2) {
+      display: none;
     }
   }
 }

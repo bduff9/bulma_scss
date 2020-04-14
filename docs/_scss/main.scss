@@ -7,7 +7,7 @@
   @include block;
 
   align-items: center;
-  border: 2px solid $white-ter;
+  border: 2px solid $scheme-main-ter;
   border-radius: $radius;
   display: flex;
   flex-direction: column;
@@ -19,7 +19,7 @@
 
   figcaption {
     align-self: stretch;
-    background-color: $white-ter;
+    background-color: $scheme-main-ter;
     color: $text-light;
     font-size: $size-small;
     padding: 1em;
@@ -44,7 +44,7 @@
 
 .bd-prev-next {
   align-items: flex-start;
-  color: $grey-light;
+  color: $border-hover;
   display: none;
   flex-grow: 0;
   flex-shrink: 0;
@@ -124,7 +124,7 @@
 
       ul,
       a {
-        border-bottom-color: $white-ter;
+        border-bottom-color: $scheme-main-ter;
         border-bottom-width: 2px;
       }
 
@@ -163,7 +163,7 @@
 
 .bd-side,
 .bd-side-background {
-  background-color: $white-bis;
+  background-color: $scheme-main-bis;
 }
 
 .bd-side {
@@ -188,7 +188,7 @@
 
     &.is-past {
       a {
-        color: $grey-light;
+        color: $border-hover;
       }
     }
 
@@ -240,7 +240,7 @@
   @include overlay;
 
   align-items: center;
-  color: $grey-light;
+  color: $border-hover;
   display: flex;
   justify-content: flex-end;
 
@@ -252,6 +252,15 @@
   }
 }
 
+.tag.bd-mini-tag {
+  border-radius: 2px !important;
+  font-family: Verdana, sans-serif;
+  font-size: 0.5rem;
+  font-weight: bold;
+  height: 2.25em;
+  vertical-align: text-bottom;
+}
+
 .bd-category-name {
   color: $text-strong;
   position: relative;
@@ -260,14 +269,8 @@
     color: $link;
   }
 
-  .tag {
-    border-radius: 2px;
-    font-family: Verdana;
-    font-size: 0.5rem;
-    font-weight: bold;
-    height: 2.25em;
+  .bd-mini-tag {
     margin-left: 0.5em;
-    vertical-align: text-bottom;
   }
 }
 
@@ -300,7 +303,7 @@
 }
 
 .bd-anchors-title {
-  color: $grey-light;
+  color: $border-hover;
   font-size: 0.875rem;
   font-weight: $weight-semibold;
   margin-bottom: 0.5rem;
@@ -345,7 +348,7 @@
   }
 
   .bd-lead {
-    background-color: $white;
+    background-color: $scheme-main;
     overflow: hidden;
     flex-grow: 1;
     flex-shrink: 1;

@@ -38,22 +38,6 @@ $tag-delete-margin: 1px !default;
     }
   }
 
-  &.has-addons {
-    .tag {
-      margin-right: 0;
-
-      &:not(:first-child) {
-        border-bottom-left-radius: 0;
-        border-top-left-radius: 0;
-      }
-
-      &:not(:last-child) {
-        border-bottom-right-radius: 0;
-        border-top-right-radius: 0;
-      }
-    }
-  }
-
   &.is-centered {
     justify-content: center;
 
@@ -122,6 +106,17 @@ $tag-delete-margin: 1px !default;
     &.is-#{$name} {
       background-color: $color;
       color: $color-invert;
+
+      // If a light and dark colors are provided
+      @if length($pair) > 3 {
+        $color-light: nth($pair, 3);
+        $color-dark: nth($pair, 4);
+
+        &.is-light {
+          background-color: $color-light;
+          color: $color-dark;
+        }
+      }
     }
   }
 

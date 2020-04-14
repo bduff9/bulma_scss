@@ -12,7 +12,7 @@
 }
 
 .bd-footer-subtitle {
-  color: $grey-light;
+  color: $border-hover;
   margin-top: -0.5rem;
   transition-duration: $speed;
   transition-property: color;
@@ -25,16 +25,23 @@
   min-height: 30px;
 
   iframe {
+    height: 30px;
     margin-bottom: 10px;
   }
 
   .fb-like {
     margin-left: 10px;
   }
+
+  &.is-github {
+    iframe {
+      width: 100%;
+    }
+  }
 }
 
 .bd-footer-tsp {
-  color: $grey-light;
+  color: $border-hover;
   margin-top: 1.5rem;
 }
 
@@ -53,7 +60,7 @@
 .bd-footer-support {
   @extend %bd-footer-box;
 
-  border-top: none;
+  border-top: 2px solid $scheme-main-ter;
   box-shadow: none;
   padding: 3rem;
 
@@ -70,15 +77,31 @@
   flex: none;
 }
 
+.bd-footer-donation-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .bd-footer-sponsor {
+    width: 12rem;
+  }
+}
+
+.bd-footer-sponsor a {
+  @extend %center;
+
+  height: 70px;
+}
+
 @include tablet {
   .bd-footer-donation {
-    width: 240px;
+    padding: 0.75rem 1.5rem;
   }
 }
 
 
 .bd-footer-donation-title {
-  color: $grey-light;
+  color: $border-hover;
   margin-bottom: 0.5rem;
 
   strong {
@@ -90,6 +113,15 @@
   @extend %center;
 
   height: 70px;
+
+  .bd-github-button {
+    margin-right: 0.5rem;
+  }
+
+  .bd-github-button,
+  .bd-patreon-button {
+    flex-shrink: 0;
+  }
 
   .paypal-form {
     height: 30px;
@@ -134,7 +166,7 @@ $star-figure-height: 156px;
 
 
   &:hover {
-    box-shadow: 0 3rem 3rem -1.25rem rgba($black, 0.1);
+    box-shadow: 0 3rem 3rem -1.25rem rgba($scheme-invert, 0.1);
     transform: translateY(-0.5rem);
 
     .bd-footer-title,
@@ -216,7 +248,7 @@ $star-figure-height: 156px;
     font-size: 0.875rem;
 
     a:not(:hover) {
-      color: $grey-light;
+      color: $border-hover;
     }
   }
 
@@ -240,7 +272,7 @@ $star-figure-height: 156px;
 
       &:not(:hover) {
         em {
-          color: $grey-light;
+          color: $border-hover;
         }
       }
 

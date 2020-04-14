@@ -1,6 +1,6 @@
 {
   "name": "bulma_scss",
-  "version": "0.7.2-rc.0",
+  "version": "0.8.2-rc.0",
   "homepage": "https://bulma.io",
   "author": "Brian Duffey <bduff9@gmail.com> (http://asitewithnoname.com)",
   "description": "Modern CSS framework based on Flexbox, scss version",
@@ -21,11 +21,11 @@
     "url": "https://github.com/jgthms/bulma/issues"
   },
   "devDependencies": {
-    "autoprefixer": "8.6.5",
+    "autoprefixer": "9.7.4",
     "clean-css-cli": "4.1.11",
-    "node-sass": "4.8.3",
-    "postcss-cli": "5.0.0",
-    "rimraf": "2.6.2"
+    "node-sass": "4.13.1",
+    "postcss-cli": "7.1.0",
+    "rimraf": "3.0.2"
   },
   "scripts": {
     "build": "npm run build-clean && npm run build-sass && npm run build-autoprefix && npm run build-cleancss",
