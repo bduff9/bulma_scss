@@ -1,11 +1,12 @@
-$button-color: $grey-darker !default;
-$button-background-color: $white !default;
+$button-color: $text-strong !default;
+$button-background-color: $scheme-main !default;
+$button-family: false !default;
 
-$button-border-color: $grey-lighter !default;
+$button-border-color: $border !default;
 $button-border-width: $control-border-width !default;
 
-$button-padding-vertical: calc(0.375em - #{$button-border-width}) !default;
-$button-padding-horizontal: 0.75em !default;
+$button-padding-vertical: calc(0.5em - #{$button-border-width}) !default;
+$button-padding-horizontal: 1em !default;
 
 $button-hover-color: $link-hover !default;
 $button-hover-border-color: $link-hover-border !default;
@@ -13,23 +14,24 @@ $button-hover-border-color: $link-hover-border !default;
 $button-focus-color: $link-focus !default;
 $button-focus-border-color: $link-focus-border !default;
 $button-focus-box-shadow-size: 0 0 0 0.125em !default;
-$button-focus-box-shadow-color: rgba($link, 0.25) !default;
+$button-focus-box-shadow-color: bulmaRgba($link, 0.25) !default;
 
 $button-active-color: $link-active !default;
 $button-active-border-color: $link-active-border !default;
 
 $button-text-color: $text !default;
+$button-text-decoration: underline !default;
 $button-text-hover-background-color: $background !default;
 $button-text-hover-color: $text-strong !default;
 
-$button-disabled-background-color: $white !default;
-$button-disabled-border-color: $grey-lighter !default;
+$button-disabled-background-color: $scheme-main !default;
+$button-disabled-border-color: $border !default;
 $button-disabled-shadow: none !default;
 $button-disabled-opacity: 0.5 !default;
 
-$button-static-color: $grey !default;
-$button-static-background-color: $white-ter !default;
-$button-static-border-color: $grey-lighter !default;
+$button-static-color: $text-light !default;
+$button-static-background-color: $scheme-main-ter !default;
+$button-static-border-color: $border !default;
 
 // The button sizes use mixins so they can be used at different breakpoints
 @mixin button-small {
@@ -59,6 +61,11 @@ $button-static-border-color: $grey-lighter !default;
   border-width: $button-border-width;
   color: $button-color;
   cursor: pointer;
+
+  @if $button-family {
+    font-family: $button-family;
+  }
+
   justify-content: center;
   padding-bottom: $button-padding-vertical;
   padding-left: $button-padding-horizontal;
@@ -81,18 +88,18 @@ $button-static-border-color: $grey-lighter !default;
     }
 
     &:first-child:not(:last-child) {
-      margin-left: calc(-0.375em - #{$button-border-width});
-      margin-right: 0.1875em;
+      margin-left: calc(#{-1 / 2 * $button-padding-horizontal} - #{$button-border-width});
+      margin-right: $button-padding-horizontal / 4;
     }
 
     &:last-child:not(:first-child) {
-      margin-left: 0.1875em;
-      margin-right: calc(-0.375em - #{$button-border-width});
+      margin-left: $button-padding-horizontal / 4;
+      margin-right: calc(#{-1 / 2 * $button-padding-horizontal} - #{$button-border-width});
     }
 
     &:first-child:last-child {
-      margin-left: calc(-0.375em - #{$button-border-width});
-      margin-right: calc(-0.375em - #{$button-border-width});
+      margin-left: calc(#{-1 / 2 * $button-padding-horizontal} - #{$button-border-width});
+      margin-right: calc(#{-1 / 2 * $button-padding-horizontal} - #{$button-border-width});
     }
   }
 
@@ -124,7 +131,7 @@ $button-static-border-color: $grey-lighter !default;
     background-color: transparent;
     border-color: transparent;
     color: $button-text-color;
-    text-decoration: underline;
+    text-decoration: $button-text-decoration;
 
     &:hover,
     &.is-hovered,
@@ -136,7 +143,7 @@ $button-static-border-color: $grey-lighter !default;
 
     &:active,
     &.is-active {
-      background-color: darken($button-text-hover-background-color, 5%);
+      background-color: bulmaDarken($button-text-hover-background-color, 5%);
       color: $button-text-hover-color;
     }
 
@@ -159,7 +166,7 @@ $button-static-border-color: $grey-lighter !default;
 
       &:hover,
       &.is-hovered {
-        background-color: darken($color, 2.5%);
+        background-color: bulmaDarken($color, 2.5%);
         border-color: transparent;
         color: $color-invert;
       }
@@ -170,13 +177,13 @@ $button-static-border-color: $grey-lighter !default;
         color: $color-invert;
 
         &:not(:active) {
-          box-shadow: $button-focus-box-shadow-size rgba($color, 0.25);
+          box-shadow: $button-focus-box-shadow-size bulmaRgba($color, 0.25);
         }
       }
 
       &:active,
       &.is-active {
-        background-color: darken($color, 5%);
+        background-color: bulmaDarken($color, 5%);
         border-color: transparent;
         color: $color-invert;
       }
@@ -192,8 +199,9 @@ $button-static-border-color: $grey-lighter !default;
         background-color: $color-invert;
         color: $color;
 
-        &:hover {
-          background-color: darken($color-invert, 5%);
+        &:hover,
+        &.is-hovered {
+          background-color: bulmaDarken($color-invert, 5%);
         }
 
         &[disabled],
@@ -217,7 +225,9 @@ $button-static-border-color: $grey-lighter !default;
         color: $color;
 
         &:hover,
-        &:focus {
+        &.is-hovered,
+        &:focus,
+        &.is-focused {
           background-color: $color;
           border-color: $color;
           color: $color-invert;
@@ -226,6 +236,15 @@ $button-static-border-color: $grey-lighter !default;
         &.is-loading {
           &::after {
             border-color: transparent transparent $color $color !important;
+          }
+
+          &:hover,
+          &.is-hovered,
+          &:focus,
+          &.is-focused {
+            &::after {
+              border-color: transparent transparent $color-invert $color-invert !important;
+            }
           }
         }
 
@@ -244,9 +263,22 @@ $button-static-border-color: $grey-lighter !default;
         color: $color-invert;
 
         &:hover,
-        &:focus {
+        &.is-hovered,
+        &:focus,
+        &.is-focused {
           background-color: $color-invert;
           color: $color;
+        }
+
+        &.is-loading {
+          &:hover,
+          &.is-hovered,
+          &:focus,
+          &.is-focused {
+            &::after {
+              border-color: transparent transparent $color $color !important;
+            }
+          }
         }
 
         &[disabled],
@@ -255,6 +287,31 @@ $button-static-border-color: $grey-lighter !default;
           border-color: $color-invert;
           box-shadow: none;
           color: $color-invert;
+        }
+      }
+
+      // If light and dark colors are provided
+      @if length($pair) >= 4 {
+        $color-light: nth($pair, 3);
+        $color-dark: nth($pair, 4);
+
+        &.is-light {
+          background-color: $color-light;
+          color: $color-dark;
+
+          &:hover,
+          &.is-hovered {
+            background-color: bulmaDarken($color-light, 2.5%);
+            border-color: transparent;
+            color: $color-dark;
+          }
+
+          &:active,
+          &.is-active {
+            background-color: bulmaDarken($color-light, 5%);
+            border-color: transparent;
+            color: $color-dark;
+          }
         }
       }
     }
@@ -314,8 +371,8 @@ $button-static-border-color: $grey-lighter !default;
 
   &.is-rounded {
     border-radius: $radius-rounded;
-    padding-left: 1em;
-    padding-right: 1em;
+    padding-left: calc(#{$button-padding-horizontal} + 0.25em);
+    padding-right: calc(#{$button-padding-horizontal} + 0.25em);
   }
 }
 
@@ -396,15 +453,30 @@ $button-static-border-color: $grey-lighter !default;
 
       &.is-expanded {
         flex-grow: 1;
+        flex-shrink: 1;
       }
     }
   }
 
   &.is-centered {
     justify-content: center;
+
+    &:not(.has-addons) {
+      .button:not(.is-fullwidth) {
+        margin-left: 0.25rem;
+        margin-right: 0.25rem;
+      }
+    }
   }
 
   &.is-right {
     justify-content: flex-end;
+
+    &:not(.has-addons) {
+      .button:not(.is-fullwidth) {
+        margin-left: 0.25rem;
+        margin-right: 0.25rem;
+      }
+    }
   }
 }
