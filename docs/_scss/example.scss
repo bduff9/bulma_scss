@@ -241,7 +241,7 @@ $structure-invert: $danger-invert;
   &::before {
     @include overlay;
 
-    background: rgba($black, 0.7);
+    background: rgba($scheme-invert, 0.7);
     background: $background;
     border: 1px solid $border;
     content: "";

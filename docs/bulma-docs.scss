@@ -24,6 +24,7 @@ $main-spacing: 3rem;
 $intro-width: 1080px;
 $sidebar-width: 10.5rem;
 
+// @import "./bulma-dark"
 @import "../bulma";
 
 %center {
@@ -37,6 +38,30 @@ $sidebar-width: 10.5rem;
   border-radius: $radius-large;
   box-shadow: 0 1.5rem 1.5rem -1.25rem rgba($black, 0.05);
   display: block;
+}
+
+%link-before-background {
+  &::before {
+    @include overlay;
+
+    background-color: $scheme-main-bis;
+    border-radius: $radius-large;
+    content: "";
+    display: block;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(1.1);
+    transform-origin: center;
+    transition-duration: $speed * 2;
+    transition-property: opacity, transform;
+  }
+
+  &:hover {
+    &::before {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
 }
 
 @mixin selection($current-selector: false) {
