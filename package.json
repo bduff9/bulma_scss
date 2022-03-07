@@ -24,7 +24,7 @@
     "autoprefixer": "9.7.4",
     "clean-css-cli": "4.1.11",
     "node-sass": "4.13.1",
-    "postcss-cli": "7.1.0",
+    "postcss-cli": "9.1.0",
     "rimraf": "3.0.2"
   },
   "scripts": {
