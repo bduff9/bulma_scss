@@ -21,7 +21,7 @@
     "url": "https://github.com/jgthms/bulma/issues"
   },
   "devDependencies": {
-    "autoprefixer": "9.7.4",
+    "autoprefixer": "10.4.19",
     "clean-css-cli": "4.1.11",
     "node-sass": "4.13.1",
     "postcss-cli": "7.1.0",
